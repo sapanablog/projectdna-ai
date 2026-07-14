@@ -21,9 +21,23 @@ def write_file(path: str, content: str) -> str:
     return f"File written: {path}"
 
 
-def search_files(pattern: str) -> list[str]:
-    """Search files using glob."""
-    return sorted(str(p) for p in Path(".").glob(pattern))
+from pathlib import Path
+
+def search_files(pattern: str = "**/*") -> list[str]:
+    """
+    Search for files in the project.
+
+    Args:
+        pattern: Glob pattern (default searches the whole repository).
+
+    Returns:
+        A sorted list of matching file paths.
+    """
+    return sorted(
+        str(path)
+        for path in Path(".").glob(pattern)
+        if path.is_file()
+    )
 
 
 def delete_file(path: str) -> str:

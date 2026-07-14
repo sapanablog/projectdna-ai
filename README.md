@@ -5,7 +5,7 @@
 <h1 align="center">🧬 ProjectDNA-AI</h1>
 
 <p align="center">
-An extensible AI Coding Assistant built with <strong>Pydantic AI</strong>, <strong>OpenRouter</strong>, and <strong>Google Gemini</strong>.
+An AI-powered developer assistant for understanding software repositories and simplifying developer onboarding.
 </p>
 
 <p align="center">
@@ -13,57 +13,66 @@ An extensible AI Coding Assistant built with <strong>Pydantic AI</strong>, <stro
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![Pydantic AI](https://img.shields.io/badge/Pydantic-AI-red)
 ![OpenRouter](https://img.shields.io/badge/OpenRouter-LLM-success)
-![Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?logo=google)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Google Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?logo=google)
+![MIT License](https://img.shields.io/badge/License-MIT-green)
 
-</p>
-
----
-
-<p align="center">
-<img src="screenshots/demo.gif" alt="Project Demo" width="900">
 </p>
 
 ---
 
 # Overview
 
-ProjectDNA-AI is a modular AI coding assistant that demonstrates the core principles of **Agentic AI** using **Pydantic AI**. The assistant combines conversational memory, adaptive reasoning, tool calling, execution hooks, and dynamically loaded skills within a clean and extensible architecture.
+Understanding an unfamiliar codebase is one of the first challenges developers face when joining an existing project. Before contributing new features or fixing bugs, they need to understand the repository structure, project architecture, dependencies, and development workflow.
 
-The project was developed after completing the **Agentic AI Masterclass** from the **appliedAI Institute for Europe**, delivered through the **THRIVE Machine Learning Specialization (Kiron Education)**. While following the concepts introduced in the masterclass, the implementation has been reorganized into a modular Python project to improve maintainability, readability, and future extensibility.
+ProjectDNA-AI is a lightweight developer assistant designed to support this process. Built with **Pydantic AI**, **OpenRouter**, and **Google Gemini**, it combines conversational memory, adaptive reasoning, tool calling, execution hooks, and dynamically loaded skills into a modular AI application.
+
+The assistant can inspect a local repository, interact with files through tools, explain project structure, and generate onboarding documentation to help developers become productive more quickly.
+
+This project was developed after completing the **Agentic AI Masterclass** from the **appliedAI Institute for Europe**, delivered through the **THRIVE Machine Learning Specialization** by **Kiron Education**. While inspired by the concepts introduced in the masterclass, the implementation has been reorganized into a modular Python project and extended with repository analysis and onboarding capabilities.
 
 ---
 
-# Why ProjectDNA-AI?
+# Why this project?
 
-Traditional chatbot examples generate text responses but cannot interact with their environment.
+Most AI coding assistants focus on answering programming questions.
 
-ProjectDNA-AI extends this concept by enabling the assistant to:
+ProjectDNA-AI focuses on helping developers understand existing software projects. Instead of responding only with generated text, the assistant can inspect the repository, decide which tools are required, perform file operations, and generate useful documentation based on the current project.
 
-- maintain conversational context across multiple interactions
-- interact with the local file system through tools
-- adapt its reasoning effort depending on task complexity
-- discover new capabilities through dynamically loaded Markdown skills
-- organize functionality into reusable modules following a capability-based design
-
-The result is a lightweight foundation for building more advanced agentic AI applications.
+The goal is to demonstrate how agentic AI can be applied to practical developer workflows rather than isolated prompt-response interactions.
 
 ---
 
 # Features
 
+### Agent Capabilities
+
 - Multi-turn conversation memory
-- Adaptive reasoning (Low / Medium / High)
-- File system tool calling
-  - Read files
-  - Write files
-  - Search files
-  - Delete files
-- Real-time execution logging through hooks
-- Dynamic skill discovery using Markdown
-- Modular capability-based architecture
-- OpenRouter integration with Google Gemini models
-- Clean separation between tools, capabilities, and agent configuration
+- Adaptive reasoning (Low, Medium and High)
+- Dynamic tool selection
+- Execution hooks for tool visibility
+- Runtime skill discovery
+
+### Repository Understanding
+
+- Explore repository structure
+- Read important project files
+- Explain project architecture
+- Summarize software repositories
+- Generate onboarding documentation
+
+### File Operations
+
+- Read files
+- Write files
+- Search files
+- Delete files
+
+### Extensibility
+
+- Markdown-based skills
+- Capability-based architecture
+- Modular project structure
+- Easy to extend with new tools and skills
 
 ---
 
@@ -72,19 +81,20 @@ The result is a lightweight foundation for building more advanced agentic AI app
 ```text
 ProjectDNA-AI/
 │
-├── main.py                    # CLI entry point
-├── agent.py                   # Agent configuration
+├── main.py
+├── agent.py
 │
 ├── capabilities/
-│   ├── file_operations.py     # Tool registration + execution hooks
-│   ├── reasoning.py           # Dynamic reasoning selection
-│   └── skills.py              # Dynamic skill loading
+│   ├── file_operations.py
+│   ├── reasoning.py
+│   └── skills.py
 │
 ├── tools/
-│   └── file_tools.py          # File operation tools
+│   └── file_tools.py
 │
 ├── skills/
-│   └── code_review.md         # Example skill
+│   ├── code_review.md
+│   └── onboarding.md
 │
 ├── screenshots/
 │
@@ -101,28 +111,28 @@ ProjectDNA-AI/
                          User
                            │
                            ▼
-                    ProjectDNA-AI
+                     ProjectDNA-AI
                            │
-             ┌─────────────┼─────────────┐
-             │             │             │
-             ▼             ▼             ▼
-      Reasoning      File Operations     Skills
-             │             │             │
-             ▼             ▼             ▼
-     Model Settings   File Tools   Markdown Skills
+         ┌─────────────────┼─────────────────┐
+         │                 │                 │
+         ▼                 ▼                 ▼
+    Reasoning      File Operations        Skills
+         │                 │                 │
+         ▼                 ▼                 ▼
+  Model Settings      File Tools      Markdown Skills
                            │
                            ▼
-                  Local File System
+                    Local Repository
 ```
 
 ---
 
-# Technologies
+# Technology Stack
 
 | Category | Technology |
-|-----------|------------|
+|----------|------------|
 | Language | Python 3.11 |
-| AI Framework | Pydantic AI |
+| Framework | Pydantic AI |
 | LLM Gateway | OpenRouter |
 | Model | Google Gemini 2.5 Flash |
 | API Client | OpenAI Python SDK |
@@ -130,30 +140,40 @@ ProjectDNA-AI/
 | Metadata | python-frontmatter |
 
 ---
+# Getting Started
 
-# Installation
+## Prerequisites
 
-Clone the repository
+Before running the project, ensure you have:
+
+- Python 3.11 or later
+- An OpenRouter API key
+- Git
+
+---
+
+## Installation
+
+Clone the repository:
 
 ```bash
-git clone https://github.com/sapanablog/ProjectDNA-AI.git
-
-cd ProjectDNA-AI
+git clone https://github.com/sapanablog/projectdna-ai.git
+cd projectdna-ai
 ```
 
-Install dependencies
+Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Create a `.env` file
+Create a `.env` file in the project root:
 
 ```text
-OPENROUTER_API_KEY=your_api_key
+OPENROUTER_API_KEY=your_openrouter_api_key
 ```
 
-Run the assistant
+Start the assistant:
 
 ```bash
 python main.py
@@ -161,7 +181,11 @@ python main.py
 
 ---
 
-# Example Conversation
+# Example Usage
+
+## Conversation Memory
+
+The assistant maintains conversation history across multiple interactions.
 
 ```text
 You:
@@ -179,117 +203,184 @@ Your name is Sapana.
 
 ---
 
-# File Operations Example
+## Tool Calling
+
+The assistant can interact with the local file system through tools.
 
 ```text
 You:
-Create a file called notes.txt containing
-"Hello ProjectDNA-AI".
-
-Read the file.
-
-Delete it afterwards.
+Create a file called notes.txt containing "Hello ProjectDNA-AI".
 
 → Calling tool: write_file
-
-→ Calling tool: read_file
-
-→ Calling tool: delete_file
-
-Assistant:
-The requested file was successfully created,
-read, and deleted.
 ```
 
+```text
+You:
+Read notes.txt
+
+→ Calling tool: read_file
+```
+
+```text
+You:
+Delete notes.txt
+
+→ Calling tool: delete_file
+```
+
+Every tool execution is logged before it is executed, making the assistant's behaviour transparent during runtime.
+
 ---
 
-# Adaptive Reasoning
+## Adaptive Reasoning
 
-The assistant dynamically adjusts the model's reasoning effort depending on the user's request.
+Reasoning effort is selected automatically based on the complexity of the request.
 
-| Task | Reasoning |
-|------|-----------|
-| Greetings | Low |
-| General coding questions | Medium |
+| User Request | Reasoning Level |
+|--------------|-----------------|
+| Greeting | Low |
+| General programming question | Medium |
 | Debugging | High |
 | System design | High |
-| Algorithm discussion | High |
+| Repository explanation | High |
 
 ---
 
-# Dynamic Skills
+## Repository Understanding
 
-Skills are automatically discovered from the `skills/` directory.
+One of the extensions added to the original coursework is repository understanding.
 
-Current implementation:
+Example:
+
+```text
+You:
+Explain this repository to a new developer.
+```
+
+The assistant automatically:
+
+- explores the repository structure
+- identifies important project files
+- reads the project documentation
+- summarizes the architecture
+- explains the purpose of each module
+
+This provides a quick overview of an unfamiliar codebase without requiring manual exploration.
+
+---
+
+## Developer Onboarding
+
+The assistant can also generate onboarding documentation for new contributors.
+
+Example:
+
+```text
+You:
+Generate onboarding documentation.
+```
+
+The workflow includes:
+
+- loading the onboarding skill
+- inspecting the repository
+- reading important project files
+- generating a structured onboarding guide
+
+This demonstrates how repository analysis and dynamic skills can be combined to automate common developer tasks.
+
+---
+
+## Dynamic Skills
+
+ProjectDNA-AI discovers skills automatically from the `skills` directory at runtime.
+
+Current implementation includes:
 
 - Code Review
+- Repository Onboarding
 
-Additional skills can be added simply by creating new Markdown files with frontmatter metadata—no changes to the Python application are required.
+Adding new functionality does not require changing the application code. New capabilities can be introduced by creating additional Markdown skill files with the appropriate metadata.
 
 ---
 
 # Screenshots
 
-### Application Startup
+## Application Startup
 
-*(Add screenshot)*
-
----
-
-### Conversation Memory
-
-*(Add screenshot)*
+![Application Startup](screenshots/01_welcome.png)
 
 ---
 
-### Tool Execution Logging
+## Conversation Memory
 
-*(Add screenshot)*
-
----
-
-### Dynamic Skill Loading
-
-*(Add screenshot)*
+![Conversation Memory](screenshots/02_memory.png)
 
 ---
 
-### Adaptive Reasoning
+## Tool Execution
 
-*(Add screenshot)*
+![Tool Execution](screenshots/03_tools.png)
+
+---
+
+## Repository Exploration
+
+The assistant first explores the repository by searching the project structure.
+
+![Repository Search](screenshots/04_repository_search.png)
+
+---
+
+## Repository Understanding
+
+After inspecting the project files, the assistant explains the architecture and helps a new developer understand the codebase.
+
+![Repository Explanation](screenshots/05_repository_explanation.png)
+---
+
+## Developer Onboarding
+
+![Developer Onboarding](screenshots/05_onboarding.png)
+
+---
+
+## Dynamic Skill Loading
+
+![Dynamic Skills](screenshots/06_skills.png)
 
 ---
 
 # Future Improvements
 
-Possible future extensions include:
+Potential future enhancements include:
 
-- Long-term memory with vector databases
+- GitHub API integration
 - Retrieval-Augmented Generation (RAG)
-- GitHub repository integration
-- Web search capability
-- Sandboxed Python execution
+- Long-term memory using vector databases
+- Sandboxed Python code execution
+- Docker support
+- Intelligent repository search
+- Automatic documentation generation
 - Additional reusable skills
-- Docker deployment
-- Unit test generation
 - Multi-agent collaboration
 
 ---
 
-# What I Learned
+# Technical Highlights
 
-Through this project I gained practical experience with:
+This project demonstrates practical experience with:
 
-- Designing modular AI applications
-- Building reusable capabilities in Pydantic AI
-- Maintaining conversation state
-- Implementing tool calling
-- Using execution hooks
-- Dynamically adjusting model settings
-- Loading runtime skills
-- Structuring Python projects for maintainability
-- Integrating OpenRouter with Google Gemini
+- Agentic AI application development
+- Pydantic AI capabilities
+- Tool calling
+- Conversation state management
+- Execution hooks
+- Adaptive reasoning
+- Dynamic runtime skills
+- Modular Python application design
+- OpenRouter integration
+- Repository analysis workflows
 
 ---
 
@@ -298,6 +389,8 @@ Through this project I gained practical experience with:
 **Sapana Gupta**
 
 AI Developer | Machine Learning Engineer
+
+📍 Germany
 
 **LinkedIn**
 
@@ -311,6 +404,14 @@ https://github.com/sapanablog
 
 # Acknowledgements
 
-This project was completed as part of the **Agentic AI Masterclass** developed by the **appliedAI Institute for Europe** and delivered through the **THRIVE Machine Learning Specialization** by **Kiron Education**.
+This project was developed after completing the **Agentic AI Masterclass** created by the **appliedAI Institute for Europe** and delivered through the **THRIVE Machine Learning Specialization** by **Kiron Education**.
 
-The repository builds upon the concepts introduced throughout the masterclass—including conversational agents, tool calling, execution hooks, adaptive reasoning, and dynamic skills—while reorganizing the implementation into a modular, portfolio-ready Python project.
+The implementation follows the concepts introduced throughout the masterclass—including conversational memory, tool calling, execution hooks, adaptive reasoning, and dynamic skills—and extends them into a modular AI developer assistant focused on repository understanding and developer onboarding.
+
+---
+
+## License
+
+This project is released under the **MIT License**.
+
+See the `LICENSE` file for additional information.
