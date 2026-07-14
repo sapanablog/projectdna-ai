@@ -308,19 +308,19 @@ Adding new functionality does not require changing the application code. New cap
 
 ## Application Startup
 
-![Application Startup](screenshots/01_welcome.png)
+![Application Startup](./screenshots/01_welcome.png)
 
 ---
 
 ## Conversation Memory
 
-![Conversation Memory](screenshots/02_memory.png)
+![Conversation Memory](./screenshots/02_memory.png)
 
 ---
 
 ## Tool Execution
 
-![Tool Execution](screenshots/03_tools.png)
+![Tool Execution](./screenshots/03_tools.png)
 
 ---
 
@@ -328,7 +328,7 @@ Adding new functionality does not require changing the application code. New cap
 
 The assistant first explores the repository by searching the project structure.
 
-![Repository Search](screenshots/04_repository_search.png)
+![Repository Exploration](./screenshots/04_repository.png)
 
 ---
 
@@ -336,18 +336,23 @@ The assistant first explores the repository by searching the project structure.
 
 After inspecting the project files, the assistant explains the architecture and helps a new developer understand the codebase.
 
-![Repository Explanation](screenshots/05_repository_explanation.png)
+![Repository Understanding](./screenshots/05_repository_explanation.png)
+
 ---
 
 ## Developer Onboarding
 
-![Developer Onboarding](screenshots/05_onboarding.png)
+The assistant generates onboarding documentation for new developers after analyzing the repository.
+
+![Developer Onboarding](./screenshots/06_onboarding.png)
 
 ---
 
 ## Dynamic Skill Loading
 
-![Dynamic Skills](screenshots/06_skills.png)
+The assistant automatically discovers and loads available skills from the `skills/` directory.
+
+![Dynamic Skills](./screenshots/07_skills.png)
 
 ---
 
