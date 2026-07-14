@@ -411,7 +411,7 @@ https://github.com/sapanablog
 
 This project was developed after completing the **Agentic AI Masterclass** created by the **appliedAI Institute for Europe** and delivered through the **THRIVE Machine Learning Specialization** by **Kiron Education**.
 
-The implementation follows the concepts introduced throughout the masterclass—including conversational memory, tool calling, execution hooks, adaptive reasoning, and dynamic skills—and extends them into a modular AI developer assistant focused on repository understanding and developer onboarding.
+The implementation follows the concepts introduced throughout the masterclass-including conversational memory, tool calling, execution hooks, adaptive reasoning, and dynamic skills-and extends them into a modular AI developer assistant focused on repository understanding and developer onboarding.
 
 ---
 
